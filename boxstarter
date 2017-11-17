@@ -92,6 +92,8 @@ cinst -y win-youtube-dl
 cinst -y winff
 cinst -y skype
 cinst -y ccleaner
+cinst -y winscp
+cinst -y gimp
 if (Test-PendingReboot) { Invoke-Reboot }
 
 #Azure functions
