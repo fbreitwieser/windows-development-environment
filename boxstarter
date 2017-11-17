@@ -90,6 +90,7 @@ cinst -y ffmpeg
 cinst -y youtube-dl
 cinst -y win-youtube-dl
 cinst -y winff
+cinst -y skype
 if (Test-PendingReboot) { Invoke-Reboot }
 
 #Azure functions
