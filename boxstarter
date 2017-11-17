@@ -44,7 +44,6 @@ cinst -y nodejs.install
 cinst -y git.install
 cinst -y poshgit
 cinst -y git-credential-winstore
-cinst -y github
 
 ## Node, npm
 cinst -y nodejs.install
