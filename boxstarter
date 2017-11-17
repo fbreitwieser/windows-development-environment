@@ -54,13 +54,13 @@ npm install -g npm-windows-upgrade
 cinstm visualstudiocode
 
 ## Visual Studio 2017
-cinst, visualstudio2017community
+cinstm visualstudio2017community
 if (Test-PendingReboot) { Invoke-Reboot }
 
 # Java
-cinst -y jdk
-cinst -y maven
-cinst -y eclipse
+cinstm y jdk
+cinstm  maven
+cinstm  eclipse
 
 # Other languages
 cinstm golang
