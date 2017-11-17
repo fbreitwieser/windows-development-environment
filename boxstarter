@@ -22,6 +22,16 @@ if (Test-PendingReboot) { Invoke-Reboot }
 
 ### Fonts
 cinst -y inconsolata 
+cinst -y firacode
+cinst -y sourcecodepro
+cinst -y hackfont
+cinst -y robotofonts
+cinst -y envycoder
+cinst -y dejavufonts
+cinst -y bitstreamverafonts
+cinst -y noto
+cinst -y opensans
+cinst -y font-awesome-font
 
 # Update Windows and reboot if necessary
 Install-WindowsUpdate -AcceptEula
@@ -44,6 +54,7 @@ cinst -y nodejs.install
 cinst -y git.install
 cinst -y poshgit
 cinst -y git-credential-winstore
+cinst -y sourcetree
 
 ## Node, npm
 cinst -y nodejs.install
@@ -95,6 +106,8 @@ cinst -y ccleaner
 cinst -y winscp
 cinst -y gimp
 cinst -y calibre
+cinst -y baretail
+cinst -y pgadmin4
 if (Test-PendingReboot) { Invoke-Reboot }
 
 #Azure functions
