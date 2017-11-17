@@ -101,6 +101,8 @@ cinst -y  dotnetcore-sdk
 npm install -g azure-functions-core-tools@core
 cinst -y azure-cli
 
+# AWS
+cinst -y awscli
 
 # Pinning Things
 Install-ChocolateyPinnedTaskBarItem "$env:programfiles\Google\Chrome\Application\chrome.exe"
