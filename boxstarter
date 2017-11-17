@@ -3,16 +3,25 @@ $Boxstarter.RebootOk=$true # Allow reboots?
 $Boxstarter.NoPassword=$false # Is this a machine with no login password?
 $Boxstarter.AutoLogin=$true # Save my password securely and auto-login after a reboot
 
-# Basic setup
+#--- Windows Settings ---
+Disable-BingSearch
+Disable-GameBarTips
+Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowProtectedOSFiles -EnableShowFileExtensions
+Set-TaskbarOptions -Size Small -Dock Bottom -Combine Full -Lock
+Set-TaskbarOptions -Size Small -Dock Bottom -Combine Full -AlwaysShowIconsOn
 Update-ExecutionPolicy Unrestricted
-Set-ExplorerOptions -showHidenFilesFoldersDrives -showProtectedOSFiles -showFileExtensions
 Enable-RemoteDesktop
 Disable-InternetExplorerESC
 Disable-UAC
 Set-TaskbarSmall
 Update-ExecutionPolicy Unrestricted
 
+
 if (Test-PendingReboot) { Invoke-Reboot }
+
+
+### Fonts
+cinstm inconsolata 
 
 # Update Windows and reboot if necessary
 Install-WindowsUpdate -AcceptEula
@@ -26,6 +35,7 @@ cinstm cmder -pre
 cinstm hyper
 cinstm Gow
 cinstm babun
+
 
 ## Node, npm
 cinstm nodejs.install
@@ -89,9 +99,114 @@ npm install -g azure-functions-core-tools@core
 cinstm azure-cli
 
 
-
 # Pinning Things
 Install-ChocolateyPinnedTaskBarItem "$env:programfiles\Google\Chrome\Application\chrome.exe"
 
-# Let's get Updates, too
+
+#--- Uninstall unecessary applications that come with Windows out of the box ---
+
+# 3D Builder
+Get-AppxPackage Microsoft.3DBuilder | Remove-AppxPackage
+
+# Alarms
+Get-AppxPackage Microsoft.WindowsAlarms | Remove-AppxPackage
+
+# Autodesk
+Get-AppxPackage *Autodesk* | Remove-AppxPackage
+
+# Bing Weather, News, Sports, and Finance (Money):
+Get-AppxPackage Microsoft.BingFinance | Remove-AppxPackage
+Get-AppxPackage Microsoft.BingNews | Remove-AppxPackage
+Get-AppxPackage Microsoft.BingSports | Remove-AppxPackage
+Get-AppxPackage Microsoft.BingWeather | Remove-AppxPackage
+
+# BubbleWitch
+Get-AppxPackage *BubbleWitch* | Remove-AppxPackage
+
+# Candy Crush
+Get-AppxPackage king.com.CandyCrush* | Remove-AppxPackage
+
+# Comms Phone
+Get-AppxPackage Microsoft.CommsPhone | Remove-AppxPackage
+
+# Dell
+Get-AppxPackage *Dell* | Remove-AppxPackage
+
+# Dropbox
+Get-AppxPackage *Dropbox* | Remove-AppxPackage
+
+# Facebook
+Get-AppxPackage *Facebook* | Remove-AppxPackage
+
+# Feedback Hub
+Get-AppxPackage Microsoft.WindowsFeedbackHub | Remove-AppxPackage
+
+# Get Started
+Get-AppxPackage Microsoft.Getstarted | Remove-AppxPackage
+
+# Keeper
+Get-AppxPackage *Keeper* | Remove-AppxPackage
+
+# Mail & Calendar
+Get-AppxPackage microsoft.windowscommunicationsapps | Remove-AppxPackage
+
+# Maps
+Get-AppxPackage Microsoft.WindowsMaps | Remove-AppxPackage
+
+# March of Empires
+Get-AppxPackage *MarchofEmpires* | Remove-AppxPackage
+
+# McAfee Security
+Get-AppxPackage *McAfee* | Remove-AppxPackage
+
+# Uninstall McAfee Security App
+$mcafee = gci "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall" | foreach { gp $_.PSPath } | ? { $_ -match "McAfee Security" } | select UninstallString
+if ($mcafee) {
+	$mcafee = $mcafee.UninstallString -Replace "C:\Program Files\McAfee\MSC\mcuihost.exe",""
+	Write "Uninstalling McAfee..."
+	start-process "C:\Program Files\McAfee\MSC\mcuihost.exe" -arg "$mcafee" -Wait
+}
+
+# Minecraft
+Get-AppxPackage *Minecraft* | Remove-AppxPackage
+
+# People
+Get-AppxPackage Microsoft.People | Remove-AppxPackage
+
+# Plex
+Get-AppxPackage *Plex* | Remove-AppxPackage
+
+# Sound Recorder
+Get-AppxPackage Microsoft.WindowsSoundRecorder | Remove-AppxPackage
+
+# Solitaire
+Get-AppxPackage *Solitaire* | Remove-AppxPackage
+
+# Sticky Notes
+Get-AppxPackage Microsoft.MicrosoftStickyNotes | Remove-AppxPackage
+
+# Sway
+Get-AppxPackage Microsoft.Office.Sway | Remove-AppxPackage
+
+# Twitter
+Get-AppxPackage *Twitter* | Remove-AppxPackage
+
+# Xbox
+Get-AppxPackage Microsoft.XboxApp | Remove-AppxPackage
+Get-AppxPackage Microsoft.XboxIdentityProvider | Remove-AppxPackage
+
+# Zune Music, Movies & TV
+Get-AppxPackage Microsoft.ZuneMusic | Remove-AppxPackage
+Get-AppxPackage Microsoft.ZuneVideo | Remove-AppxPackage
+
+#--- Restore Temporary Settings ---
+Enable-UAC
+Enable-MicrosoftUpdate
 Install-WindowsUpdate -acceptEula
+
+#--- Rename the Computer ---
+# Requires restart, or add the -Restart flag
+$computername = "dia"
+if ($env:computername -ne $computername) {
+	Rename-Computer -NewName $computername
+}
