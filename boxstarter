@@ -19,11 +19,13 @@ Install-WindowsUpdate -AcceptEula
 if (Test-PendingReboot) { Invoke-Reboot }
 
 cinstm Microsoft-Hyper-V-All -source windowsFeatures
+cinstm Microsoft-Windows-Subsystem-Linux -source windowsfeatures
 
 # Packages
 cinstm cmder -pre
 cinstm hyper
 cinstm Gow
+cinstm babun
 
 ## Node, npm
 cinstm nodejs.install
