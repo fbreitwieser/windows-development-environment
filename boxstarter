@@ -21,82 +21,82 @@ if (Test-PendingReboot) { Invoke-Reboot }
 
 
 ### Fonts
-cinstm inconsolata 
+cinst -y inconsolata 
 
 # Update Windows and reboot if necessary
 Install-WindowsUpdate -AcceptEula
 if (Test-PendingReboot) { Invoke-Reboot }
 
-cinstm Microsoft-Hyper-V-All -source windowsFeatures
-cinstm Microsoft-Windows-Subsystem-Linux -source windowsfeatures
+cinst -y Microsoft-Hyper-V-All -source windowsFeatures
+cinst -y Microsoft-Windows-Subsystem-Linux -source windowsfeatures
 
 # Packages
-cinstm cmder -pre
-cinstm hyper
-cinstm Gow
-cinstm babun
+cinst -y cmder -pre
+cinst -y hyper
+cinst -y Gow
+cinst -y babun
 
 
 ## Node, npm
-cinstm nodejs.install
+cinst -y nodejs.install
 
 ## Git
-cinstm git.install
-cinstm poshgit
-cinstm git-credential-winstore
-cinstm github
+cinst -y git.install
+cinst -y poshgit
+cinst -y git-credential-winstore
+cinst -y github
 
 ## Node, npm
-cinstm nodejs.install
+cinst -y nodejs.install
 npm install -g npm-windows-upgrade
 
 ## Editors
-cinstm visualstudiocode
+cinst -y visualstudiocode
 
 ## Visual Studio 2017
-cinstm visualstudio2017community
+cinst -y visualstudio2017community
 if (Test-PendingReboot) { Invoke-Reboot }
 
 # Java
-cinstm y jdk
-cinstm  maven
-cinstm  eclipse
+cinst -y jdk
+cinst -y maven
+cinst -y eclipse
 
 # Other languages
-cinstm golang
-cinstm python
-cinstm pip
-cinstm easy.install
+cinst -y golang
+cinst -y python
+cinst -y pip
+cinst -y easy.install
 
 if (Test-PendingReboot) { Invoke-Reboot }
 
 ## Basics
-cinstm vlc
-cinstm GoogleChrome
-cinstm firefox
-cinstm 7zip.install
-cinstm sysinternals
-cinstm DotNet3.5
-cinstm winpcap
-cinstm openvpn
-cinstm docker-for-windows
-cinstm minikube
-cinstm nmap
-cinstm wireshark
-cinstm fiddler4
-cinstm postman
-cinstm restler
-cinstm keepassx
-cinstm ffmpeg
-cinstm youtube-dl
-cinstm win-youtube-dl
-cinstm winff
+cinst -y vlc
+cinst -y GoogleChrome
+cinst -y firefox
+cinst -y 7zip.install
+cinst -y sysinternals
+cinst -y DotNet3.5
+cinst -y winpcap
+cinst -y openvpn
+cinst -y docker-for-windows
+cinst -y minikube
+cinst -y nmap
+cinst -y wireshark
+cinst -y fiddler4
+cinst -y postman
+cinst -y restler
+cinst -y keepassx
+cinst -y ffmpeg
+cinst -y youtube-dl
+cinst -y win-youtube-dl
+cinst -y winff
 if (Test-PendingReboot) { Invoke-Reboot }
 
 #Azure functions
-cinstm  dotnetcore-sdk
+cinst -y  dotnetcore-sdk
 npm install -g azure-functions-core-tools@core
-cinstm azure-cli
+cinst -y azure-cli
 
 
 # Pinning Things
