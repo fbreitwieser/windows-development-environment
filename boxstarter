@@ -21,17 +21,17 @@ if (Test-PendingReboot) { Invoke-Reboot }
 
 
 ### Fonts
-cinst -y inconsolata 
-cinst -y firacode
-cinst -y sourcecodepro
-cinst -y hackfont
-cinst -y robotofonts
-cinst -y envycoder
-cinst -y dejavufonts
-cinst -y bitstreamverafonts
-cinst -y noto
-cinst -y opensans
-cinst -y font-awesome-font
+# cinst -y inconsolata 
+#cinst -y firacode
+# cinst -y sourcecodepro
+#cinst -y hackfont
+# cinst -y robotofonts
+# cinst -y envycoder
+# cinst -y dejavufonts
+# cinst -y bitstreamverafonts
+# cinst -y noto
+# cinst -y opensans
+# cinst -y font-awesome-font
 
 # Update Windows and reboot if necessary
 Install-WindowsUpdate -AcceptEula
@@ -46,15 +46,11 @@ cinst -y hyper
 cinst -y Gow
 cinst -y babun
 
-
-## Node, npm
-cinst -y nodejs.install
-
 ## Git
 cinst -y git.install
 cinst -y poshgit
 cinst -y git-credential-winstore
-cinst -y sourcetree
+# cinst -y sourcetree
 
 ## Node, npm
 cinst -y nodejs.install
@@ -62,10 +58,6 @@ npm install -g npm-windows-upgrade
 
 ## Editors
 cinst -y visualstudiocode
-
-## Visual Studio 2017
-cinst -y visualstudio2017community
-if (Test-PendingReboot) { Invoke-Reboot }
 
 # Java
 cinst -y jdk
@@ -108,6 +100,7 @@ cinst -y gimp
 cinst -y calibre
 cinst -y baretail
 cinst -y pgadmin4
+cinst -y slack
 if (Test-PendingReboot) { Invoke-Reboot }
 
 #Azure functions
@@ -117,9 +110,6 @@ cinst -y azure-cli
 
 # AWS
 cinst -y awscli
-
-# Pinning Things
-Install-ChocolateyPinnedTaskBarItem "$env:programfiles\Google\Chrome\Application\chrome.exe"
 
 
 #--- Uninstall unecessary applications that come with Windows out of the box ---
@@ -225,7 +215,7 @@ Install-WindowsUpdate -acceptEula
 
 #--- Rename the Computer ---
 # Requires restart, or add the -Restart flag
-$computername = "dia"
-if ($env:computername -ne $computername) {
-	Rename-Computer -NewName $computername
-}
+# $computername = "dia"
+# if ($env:computername -ne $computername) {
+#	Rename-Computer -NewName $computername
+# }
