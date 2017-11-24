@@ -96,7 +96,7 @@ cinst -y winff
 cinst -y skype
 cinst -y ccleaner
 # cinst -y winscp
-cinst -y gimp
+# cinst -y gimp
 cinst -y calibre
 cinst -y baretail
 cinst -y pgadmin4
