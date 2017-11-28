@@ -41,10 +41,10 @@ cinst -y Microsoft-Hyper-V-All -source windowsFeatures
 cinst -y Microsoft-Windows-Subsystem-Linux -source windowsfeatures
 
 # Packages
-cinst -y cmder -pre
-cinst -y hyper
-cinst -y Gow
-cinst -y babun
+# cinst -y cmder -pre
+# cinst -y hyper
+# cinst -y Gow
+# cinst -y babun
 
 ## Git
 cinst -y git.install
@@ -60,12 +60,13 @@ npm install -g npm-windows-upgrade
 cinst -y visualstudiocode
 
 # Java
-cinst -y jdk
-cinst -y maven
+# cinst -y jdk
+# cinst -y maven
 cinst -y eclipse
 
 # Other languages
-cinst -y golang
+cinst -y r.studio
+# cinst -y golang
 cinst -y python
 cinst -y pip
 cinst -y easy.install
@@ -74,6 +75,7 @@ if (Test-PendingReboot) { Invoke-Reboot }
 
 ## Basics
 cinst -y vlc
+cinst -y mpv
 cinst -y GoogleChrome
 cinst -y firefox
 cinst -y 7zip.install
@@ -104,30 +106,30 @@ cinst -y slack
 if (Test-PendingReboot) { Invoke-Reboot }
 
 #Azure functions
-cinst -y  dotnetcore-sdk
-npm install -g azure-functions-core-tools@core
-cinst -y azure-cli
+# cinst -y  dotnetcore-sdk
+# npm install -g azure-functions-core-tools@core
+# cinst -y azure-cli
 
 # AWS
-cinst -y awscli
+# cinst -y awscli
 
 
 #--- Uninstall unecessary applications that come with Windows out of the box ---
 
 # 3D Builder
-Get-AppxPackage Microsoft.3DBuilder | Remove-AppxPackage
+# Get-AppxPackage Microsoft.3DBuilder | Remove-AppxPackage
 
 # Alarms
-Get-AppxPackage Microsoft.WindowsAlarms | Remove-AppxPackage
+# Get-AppxPackage Microsoft.WindowsAlarms | Remove-AppxPackage
 
 # Autodesk
-Get-AppxPackage *Autodesk* | Remove-AppxPackage
+# Get-AppxPackage *Autodesk* | Remove-AppxPackage
 
 # Bing Weather, News, Sports, and Finance (Money):
 Get-AppxPackage Microsoft.BingFinance | Remove-AppxPackage
 Get-AppxPackage Microsoft.BingNews | Remove-AppxPackage
 Get-AppxPackage Microsoft.BingSports | Remove-AppxPackage
-Get-AppxPackage Microsoft.BingWeather | Remove-AppxPackage
+# Get-AppxPackage Microsoft.BingWeather | Remove-AppxPackage
 
 # BubbleWitch
 Get-AppxPackage *BubbleWitch* | Remove-AppxPackage
@@ -142,7 +144,7 @@ Get-AppxPackage Microsoft.CommsPhone | Remove-AppxPackage
 Get-AppxPackage *Dell* | Remove-AppxPackage
 
 # Dropbox
-Get-AppxPackage *Dropbox* | Remove-AppxPackage
+# Get-AppxPackage *Dropbox* | Remove-AppxPackage
 
 # Facebook
 Get-AppxPackage *Facebook* | Remove-AppxPackage
@@ -163,7 +165,7 @@ Get-AppxPackage microsoft.windowscommunicationsapps | Remove-AppxPackage
 Get-AppxPackage Microsoft.WindowsMaps | Remove-AppxPackage
 
 # March of Empires
-Get-AppxPackage *MarchofEmpires* | Remove-AppxPackage
+# Get-AppxPackage *MarchofEmpires* | Remove-AppxPackage
 
 # McAfee Security
 Get-AppxPackage *McAfee* | Remove-AppxPackage
@@ -186,10 +188,10 @@ Get-AppxPackage Microsoft.People | Remove-AppxPackage
 Get-AppxPackage *Plex* | Remove-AppxPackage
 
 # Sound Recorder
-Get-AppxPackage Microsoft.WindowsSoundRecorder | Remove-AppxPackage
+# Get-AppxPackage Microsoft.WindowsSoundRecorder | Remove-AppxPackage
 
 # Solitaire
-Get-AppxPackage *Solitaire* | Remove-AppxPackage
+# Get-AppxPackage *Solitaire* | Remove-AppxPackage
 
 # Sticky Notes
 Get-AppxPackage Microsoft.MicrosoftStickyNotes | Add-AppxPackage
